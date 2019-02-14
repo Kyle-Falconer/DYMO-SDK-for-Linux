@@ -1,9 +1,11 @@
+DYMO SDK for Linux
+==================
 
-About
------
 This is a fork of the official [DYMO SDK for Linux, version 1.4.0.5](http://www.dymo.com/en-US/dymo-label-sdk-and-cups-drivers-for-linux-dymo-label-sdk-cups-linux-p--1), which was last updated in 2012 for CUPS version 1.4.6. This official version no longer compiles with CUPS v2 or higher. Attempts to ask DYMO Customer Support about updates to this driver have failed, as they longer support the Linux operating system.
 
 The fix for this comes as a patch found on a [forum post](https://ubuntuforums.org/showthread.php?t=2376862&styleid=118) regarding the same issue.
+
+This has been tested to work on Ubuntu 18.04 with CUPS 2.2.7
 
 Installation:
 -------------
