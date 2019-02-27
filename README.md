@@ -1,5 +1,6 @@
 DYMO SDK for Linux
 ==================
+[![CircleCI](https://circleci.com/gh/Kyle-Falconer/DYMO-SDK-for-Linux/tree/master.svg?style=svg)](https://circleci.com/gh/Kyle-Falconer/DYMO-SDK-for-Linux/tree/master)
 
 This is a fork of the official [DYMO SDK for Linux, version 1.4.0.5](http://www.dymo.com/en-US/dymo-label-sdk-and-cups-drivers-for-linux-dymo-label-sdk-cups-linux-p--1), which was last updated in 2012 for CUPS version 1.4.6. This official version no longer compiles with CUPS v2 or higher. Attempts to ask DYMO Customer Support about updates to this driver have failed, as they longer support the Linux operating system.
 
@@ -11,7 +12,8 @@ Installation:
 -------------
 ```bash
 sudo apt-get install libcups2-dev libcupsimage2-dev gcc g++ automake
-automake
+aclocal
+automake --add-missing
 autoconf
 ./configure
 make

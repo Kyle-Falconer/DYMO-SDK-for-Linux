@@ -1,0 +1,58 @@
+image_config: &image_config
+
+  # make sure to set your Docker Hub username & password in CircleCI,
+  # either as project-specific environment variables
+  # or as resources in your organization's org-global Context
+
+  IMAGE_NAME: dymosdk
+
+  IMAGE_TAG: 1.3.1
+
+  # NOTE: if you're modifying this config.yml file manually
+  # rather than using the included setup script,
+  # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
+  # to the `test_image` job (line 55)
+
+  LINUX_VERSION: UBUNTU_XENIAL
+
+  # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
+
+  # NODE_VERSION_NUM: # pick a version from https://nodejs.org/dist
+
+  # PYTHON_VERSION_NUM: # pick a version from https://python.org/ftp/python
+
+  JAVA: false
+
+  MYSQL_CLIENT: false
+
+  POSTGRES_CLIENT: false
+
+  DOCKERIZE: false
+
+  BROWSERS: false
+
+version: 2
+jobs:
+  build:
+    machine: true
+    environment:
+      <<: *image_config
+
+    steps:
+      - checkout
+
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG -f .circleci/Dockerfile .
+
+      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
+
+      - store_artifacts:
+          path: Dockerfile
+
+workflows:
+  version: 2
+  dockerfile_wizard:
+    jobs:
+      - build:
+          context: org-global

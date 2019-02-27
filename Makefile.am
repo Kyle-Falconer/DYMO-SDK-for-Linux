@@ -19,6 +19,7 @@
 
 SUBDIRS = src ppd docs samples
 EXTRA_DIST = dymo-cups-drivers.spec LICENSE
+README: README.md
 
 #
 #  $Id: Makefile.am 4760 2008-06-19 22:21:35Z vbuzuev $
