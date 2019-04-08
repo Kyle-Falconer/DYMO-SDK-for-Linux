@@ -11,7 +11,10 @@ This has been tested to work on Ubuntu 18.04 with CUPS 2.2.7
 Installation:
 -------------
 ```bash
-sudo apt-get install libcups2-dev libcupsimage2-dev gcc g++ automake
+sudo apt-get install git libcups2-dev libcupsimage2-dev gcc g++ automake
+cd ~/
+git clone https://github.com/Kyle-Falconer/DYMO-SDK-for-Linux.git
+cd DYMO-SDK-for-Linux
 aclocal
 automake --add-missing
 autoconf
