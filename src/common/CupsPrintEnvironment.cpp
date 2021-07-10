@@ -23,6 +23,7 @@
 #include "CupsPrintEnvironment.h"
 #include <errno.h>
 #include <cups/cups.h>
+#include <cups/sidechannel.h>
 #include <cassert>
 
 namespace DymoPrinterDriver
